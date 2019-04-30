@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>VueJS Tutorial</title>
+		<link rel="stylesheet" href="vue.css">
+		<script src="vue.js"></script>
+	</head>
+<body>
+
+<div id="app">
+	<div class='demo' 
+		@click = 'attachRed = !attachRed'
+		:class="{red:attachRed}"
+	>	
+	</div>
+	<div class='demo'
+		class='demo' 
+		@click = 'attachGreen = !attachGreen'
+		:class="{green:attachGreen}"
+	>
+	</div>
+	<div class='demo'
+		class='demo' 
+		@click = 'attachBlue = !attachBlue'
+		:class="{blue:attachBlue}"	
+	></div>
+</div>
+<script>
+	new Vue({
+		el: '#app',
+		data:{
+			attachRed: false,
+			attachGreen: false,
+			attachBlue: false
+			}
+		});
+</script>
+</body>
+</html>
