@@ -1,0 +1,89 @@
+<!--
+			NOTE:
+	v-on: 		also written as @
+	v-bind: 	also written as :
+
+	numberwise div mein se buttons aur methods dono ko uncomment krna hy for working
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>VueJS MOUSE EVENTS</title>
+	<link rel="stylesheet" href="">
+	<script src="vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<p>{{title}}</p>
+		
+		<!-- 1 -->
+		<button v-on:click="increase">Click me</button>
+		<p>{{counter}}</p>
+
+		<!-- <button v-on:click="counter++">Click me</button>
+		<p>{{counter}}</p>
+		<p>{{counter > 10 ? 'Greater than 10' : 'Smaller than 10'}}</p> -->
+
+		<!-- 2 -->
+		<!-- <button v-on:click="increase(2)">Click me</button>
+		<p>{{counter}}</p> -->
+
+		<!-- 3 -->
+		<!-- <button v-on:click="increase(2, $event)">Click me</button>
+		<p>{{counter}}</p> -->
+
+		<!-- 4 -->
+		<!-- <p v-on:mousemove='updateCoordinates'>Coordinates: {{ x }}/{{ y }}</p>--
+			<span v-on:mousemove='dummy'>Dead Spot</-span>
+				OR 
+			<span v-on:mousemove.stop>Dead Spot 2</-span> -->
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'hello world',
+				counter: 0,
+				x: 0,
+				y: 0,
+			},
+		
+			methods:{
+				changeTitle: function(event){
+					this.title = event.target.value;
+				},
+
+				// 1
+				increase: function(){
+					this.counter++;
+				},
+
+				// 2 
+				// increase: function(step){
+				// 	this.counter += step;
+				// },
+
+				// 3
+				// increase: function(step,event){
+				// 	this.counter += step;
+				// },
+
+				// 4
+				// updateCoordinates: function(event){
+				// 	this.x = event.clientX;
+				// 	this.y = event.clientY;
+				// },
+
+				// 4
+				// dummy: function(event){
+				// 	event.stopPropagation;
+				// },
+			}
+		});
+	</script>
+</body>
+</html>
