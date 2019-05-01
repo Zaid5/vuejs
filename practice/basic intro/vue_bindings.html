@@ -1,0 +1,44 @@
+<!--
+				NOTE:
+	v-on: 		also written as @
+	v-bind: 	also written as :
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>VueJS BINDINGS</title>
+	<link rel="stylesheet" href="">
+	<script src="vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+
+		<!-- BINDING -->
+		<p>{{sayHello()}} - <a v-bind:href="link">Google</a></p>
+
+		<!--TWO-WAY BINDING-->
+		<input type="text" v-model='name'>
+		<p>{{name}}</p>
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'hello world',
+				link: 'http://google.com',
+				name: 'zaid'
+			},
+
+			methods:{
+				sayHello: function(){
+					return this.title;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
