@@ -1,0 +1,36 @@
+<!--
+			NOTE:
+	v-on: 		also written as @
+	v-bind: 	also written as :
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>VueJS KEYBOARD EVENT</title>
+	<link rel="stylesheet" href="">
+	<script src="vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<p>{{title}}</p>
+		<input type="text" v-on:keyup.enter.space='alertMe'>
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'hello world',
+			},
+			methods:{
+				alertMe: function(){
+					alert('Alerted');
+				}
+			}
+		});
+	</script>
+</body>
+</html>
