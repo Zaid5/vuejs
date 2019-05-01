@@ -1,0 +1,45 @@
+<script src="https://cdn.jsdelivr.net/npm/vue">
+</script>  
+
+<div id="app">
+  <mycmp></mycmp>
+<hr>
+  <mycmp></mycmp>
+</div>
+<hr><hr>
+<div id="app2">
+  <mycmp></mycmp>
+<hr>
+  <mycmp></mycmp>
+</div>
+<script>
+	//global component for single or vue instance
+		Vue.component('mycmp',{/*data,template,methods etc*/})
+
+	//local component for single div or vue instance
+	var cmp ={
+	  data:function(){
+	  	return{
+	    	title: 'welcome home'
+	    }
+	  },
+	  template: '<p>Page title: {{title}} (<button @click="changeTitle">Change 								Title</button>)</p>',
+	  methods:{
+	    changeTitle: function(){
+	    	this.title = 'Welcome again';
+	  	}
+	  }
+	};
+
+	new Vue({
+	  el: '#app',
+	  components: {
+	  	'mycmp' : cmp 
+	  }
+	});
+
+	new Vue({
+	  el: '#app2',
+	});
+      
+</script>
