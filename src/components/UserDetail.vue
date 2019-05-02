@@ -5,6 +5,7 @@
 <!--    <p>Username: {{myName}}</p>-->
     <p>Username: {{switchName()}}</p>
     <button @click="resetName">Reset Name</button>
+    <button @click="resetFn()">Reset Name 2</button>
   </div>
 </template>
 
@@ -12,17 +13,17 @@
   export default {
     // for transferring data from PARENT to CHILD we use PROPS(property set from outside i.e PARENT) property
     props: {
-      //adding a default
       myName:{
         type:String,
-        default: 'zaid iqbal'
-      }
+      },
+      //callback function to communicate with parent (User)
+      resetFn: Function
     },
     methods:{
       switchName(){
         return this.myName.split("").reverse().join("");
       },
-
+      //custom event to communicate with parent (User)
       resetName(){
         this.myName = 'zaidu';
         this.$emit('nameWasReset', this.myName);
