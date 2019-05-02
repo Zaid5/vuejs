@@ -25,6 +25,7 @@
 
       resetName(){
         this.myName = 'zaidu';
+        this.$emit('nameWasReset', this.myName);
       },
     }
   }
