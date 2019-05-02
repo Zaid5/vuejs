@@ -1,0 +1,127 @@
+<!--
+			NOTE:
+	v-on: 		also written as @
+	v-bind: 	also written as :
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>VueJS Tutorial</title>
+	<link rel="stylesheet" href="">
+	<script src="vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<input type="text" v-on:input="changeTitle">
+		<p>{{title}}</p>
+		<!--BINDINGS-->
+		<!--<p>{{sayHello()}} - <a v-bind:href="link">Google</a></p>-->
+
+		<!--MOUSE EVENTS-->
+		<!--<button v-on:click="increase">Click me</button>-->
+		<!--<p>{{counter}}</p>-->
+
+		<!--<button v-on:click="counter++">Click me</button>-->
+		<!--<p>{{counter*2 > 10 ? 'Greater than 10' : 'Smaller than 10'}}</p>-->
+
+		<!--<button v-on:click="increase(2)">Click me</button>-->
+		<!--<p>{{counter}}</p>-->
+
+		<!--<button v-on:click="increase(2, $event)">Click me</button>-->
+		<!--<p>{{counter}}</p>-->
+
+		<!--<p v-on:mousemove='updateCoordinates'>Coordinates: {{ x }}/{{ y }}</p>--
+			<span v-on:mousemove='dummy'>Dead Spot</-span>
+			OR
+			<span v-on:mousemove.stop>Dead Spot</-span>-->
+
+		<!--KEYBOARD EVENTS-->
+		<!--<input type="text" v-on:keyup.enter.space='alertMe'>-->
+
+		<!--TWO-WAY BINDING-->
+		<!--<input type="text" v-model='name'>-->
+		<!--<p>{{name}}</p>-->
+
+		<!--COMPUTED PROPERTIES-->
+		<!--<button v-on:click="counter++">increase</button>
+		<button v-on:click="counter--">decrease</button>
+		<button v-on:click="secondCounter++">secondCounter</button>
+		<p>counter: {{counter}} | {{secondCounter}}</p>
+		<p>result: {{result()}} | {{output}}</p>-->
+	</div>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'hello world',
+				// counter: 0,
+				// name: 'zaid'
+			},
+			<!--COMPUTED PROPERTIES-->
+			// computed:{
+			// 	output(){
+			// 		console.log('computed');
+			// 		return this.counter > 5 ? 'greater than 5' : 'less than 5'
+			// 	}
+			// },
+
+			<!--WATCH INSTANCE-->
+			// watch:{
+			// 	counter: function(value){
+			// 		var vm = this;
+			// 		setTimeout(function(){
+			// 			vm.counter = 0;
+			// 		},2000)
+			// 	}
+			// },
+
+			methods:{
+				changeTitle: function(event){
+					this.title = event.target.value;
+				},
+				<!--BINDINGS-->
+				// sayHello: function(){
+				// 	return this.title;
+				// }
+
+				<!--MOUSE EVENTS-->
+				// increase: function(){
+				// 	this.counter++;
+				// }
+
+				// increase: function(step){
+				// 	this.counter += step;
+				// }
+
+				// increase: function(step,event){
+				// 	this.counter += step;
+				// }
+
+				// updateCoordinates: function(event){
+				// 	this.x = event.clientX;
+				// 	this.y = event.clientY;
+				// }
+
+				// dummy: function(event){
+				// 	event.stopPropagation;
+				// }
+
+				<!--KEYBOARD EVENTS-->
+				// alertMe: function(){
+				// 	alert('Alerted');
+				// }
+
+				<!--COMPUTED PROPERTIES-->
+				// result(){
+				// 	console.log('method');
+				// 	return this.counter > 5 ? 'greater than 5' : 'less than 5'
+				// }
+			}
+		});
+	</script>
+</body>
+</html>
