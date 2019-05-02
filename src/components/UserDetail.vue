@@ -11,10 +11,10 @@
   export default {
     // for transferring data from PARENT to CHILD we use PROPS(property set from outside i.e PARENT) property
     props: {
-      //adding validation as an object
+      //adding a default
       myName:{
         type:String,
-        required: true
+        default: 'zaid iqbal'
       }
     },
     methods:{

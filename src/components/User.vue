@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6">
         <!-- :name refers to name property in data -->
-        <app-user-detail :myName="name"></app-user-detail>
+        <app-user-detail></app-user-detail>
       </div>
       <div class="col-xs-12 col-sm-6">
         <app-user-edit></app-user-edit>
