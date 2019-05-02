@@ -10,7 +10,12 @@
 <script>
   export default {
     // for transferring data from PARENT to CHILD we use PROPS(property set from outside i.e PARENT) property
-    props: ['myName'],
+    props: {
+      //adding validation
+      //when adding validation "props" should be an object and not an array
+      // we can also pass multiple types like: myName: [String, Array]
+      myName: String
+    },
     methods:{
       switchName(){
         return this.myName.split("").reverse().join("");
