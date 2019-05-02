@@ -11,6 +11,8 @@
 </template>
 
 <script>
+  import {eventBus} from "../main";
+
   export default {
     // for transferring data from PARENT to CHILD we use PROPS(property set from outside i.e PARENT) property
     props: {
@@ -30,6 +32,11 @@
         this.myName = 'zaidu';
         this.$emit('nameWasReset', this.myName);
       },
+    },
+    created() {
+      eventBus.$on('ageWasEdited', (age) => {
+        this.userAge = age;
+      });
     }
   }
 </script>

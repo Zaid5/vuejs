@@ -3,10 +3,11 @@
     <h1>The User Component</h1>
     <p>I'm an awesome User!</p>
     <button @click="changeName">Change Name</button>
+    <p>age : {{age}}</p>
     <hr>
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <!-- :name refers to name property in data -->
+        <!-- :myName refers to name property in data -->
         <app-user-detail :myName="name"
                          @nameWasReset="name = $event"
                          :resetFn = "resetName"
