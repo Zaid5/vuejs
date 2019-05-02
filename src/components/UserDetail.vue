@@ -4,6 +4,7 @@
     <p>Many Details</p>
 <!--    <p>Username: {{myName}}</p>-->
     <p>Username: {{switchName()}}</p>
+    <button @click="resetName">Reset Name</button>
   </div>
 </template>
 
@@ -20,7 +21,11 @@
     methods:{
       switchName(){
         return this.myName.split("").reverse().join("");
-      }
+      },
+
+      resetName(){
+        this.myName = 'zaidu';
+      },
     }
   }
 </script>
