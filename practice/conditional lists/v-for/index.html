@@ -1,0 +1,31 @@
+
+<!-- Put this in the HTML section in JSFiddle! -->
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="app">
+	<ul>
+		<!-- :key is used for avoiding bugs when updating array as it stores element
+		 and its position, otherwise it just overwrites with any other element -->
+		<li v-for='(food, indexOfElement) in foods' :key='food'> 
+			{{food}} ({{indexOfElement}})
+		</li>
+	</ul>
+
+	<hr>
+		<ul>
+			<li v-for='person in persons'>
+				<span v-for='(value,key,index) in person'>  <!-- index is optional -->
+					{{key}}:{{value}} ({{index}})
+				</span>
+			</li>
+		</ul>
+	<hr>
+
+	<template v-for='(food,i) in foods'>
+		<h1>{{food}}</h1>
+		<p>({{i}})</p>
+	</template>
+
+	<span v-for='n in 10'>{{n}}</span>
+</div>
