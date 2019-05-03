@@ -1,26 +1,21 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <app-user></app-user>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <appQuote quote="a wonderful day"></appQuote>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-    import User from './components/User.vue';
-
-    export default {
-        components: {
-            appUser: User
-        }
+  import Quote from './components/Quote.vue';
+  export default {
+    components: {
+      appQuote: Quote
     }
+  };
 </script>
 
 <style>
-    div.component {
-        border: 1px solid black;
-        padding: 30px;
-    }
 </style>
