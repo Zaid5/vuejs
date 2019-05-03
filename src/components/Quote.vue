@@ -2,9 +2,11 @@
   <div>
     <div class="title">
       <slot name="title"></slot>
+      <span style="color: deeppink;"><slot name="subtitle">subtile</slot></span>
     </div>
     <div>
       <slot name="content"></slot>
+      <slot></slot>
     </div>
   </div>
 </template>
