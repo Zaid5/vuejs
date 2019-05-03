@@ -6,7 +6,9 @@
         <button @click="selectedComponent = 'appAuthor'">Author</button>
         <button @click="selectedComponent = 'appNew'">New</button>
         <p>{{selectedComponent}}</p>
-        <component :is="selectedComponent"><p>Default</p></component>
+        <keep-alive>
+          <component :is="selectedComponent"><p>Default</p></component>
+        </keep-alive>
 <!--        <appQuote>-->
 <!--          <h1 slot="title">{{msgTitle}}</h1>-->
 <!--          <p slot="content">a wonderful day</p>-->
