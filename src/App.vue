@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <appQuote quote="a wonderful day"></appQuote>
+        <appQuote>
+          <h1>the message</h1>
+          <p>a wonderful day</p>
+        </appQuote>
       </div>
     </div>
   </div>
