@@ -1,40 +1,40 @@
 <template>
   <div class="container">
+    <app-new-quote @quoteAdded="newQuote "></app-new-quote>
+    <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
     <div class="row">
-      <div class="col-xs-12">
-        <button @click="selectedComponent = 'appQuote'">Quote</button>
-        <button @click="selectedComponent = 'appAuthor'">Author</button>
-        <button @click="selectedComponent = 'appNew'">New</button>
-        <p>{{selectedComponent}}</p>
-        <keep-alive>
-          <component :is="selectedComponent"><p>Default</p></component>
-        </keep-alive>
-<!--        <appQuote>-->
-<!--          <h1 slot="title">{{msgTitle}}</h1>-->
-<!--          <p slot="content">a wonderful day</p>-->
-<!--        </appQuote>-->
+      <div class="col-sm-12 text-center">
+        <div class="alert alert-info">Info: Click on a Quote to Delete</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Quote from './components/Quote.vue';
-  import Author from './components/Author.vue';
-  import New from './components/New.vue';
+  import QuoteGrid from './components/QuoteGrid.vue'
+  import NewQuote from './components/NewQuote.vue'
   export default {
-    data(){
-      return {
-        msgTitle: 'the message',
-        selectedComponent: 'appQuote'
+    data: function () {
+      return{
+        quotes:[
+          'something to see'
+        ],
+        maxQuotes: 10
       }
     },
-    components: {
-      appQuote: Quote,
-      appAuthor: Author,
-      appNew: New,
+    methods:{
+      newQuote(quote){
+        this.quotes.push(quote);
+      },
+      deleteQuote(index){
+        this.quotes.splice(index, 1);
+      }
+    },
+    components:{ 
+      appQuoteGrid: QuoteGrid,
+      appNewQuote: NewQuote
     }
-  };
+  }
 </script>
 
 <style>
