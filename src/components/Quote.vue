@@ -1,32 +1,29 @@
 <template>
-  <div>
-    <div class="title">
-      <slot name="title"></slot>
-      <span style="color: deeppink;"><slot name="subtitle">subtile</slot></span>
-    </div>
-    <div>
-      <slot name="content"></slot>
-      <slot></slot>
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="panel panel-default">
+      <div class="panel-body quote">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   export default {
+    props: ['quotes']
   }
 </script>
-<style scoped>
-  div{
-    border: 1px solid olivedrab;
-    box-shadow: 1px 1px 2px chartreuse;
-    padding: 30px;
-    margin: 30px auto;
-    text-align: center;
+
+<style>
+  .panel-body{
+    font-family: 'Arizonia',cursive;
+    font-size: 24px;
+    color: #3e3e;
   }
-  h1{
-    color: red;
+  .quote{
+    cursor: pointer;
   }
-  .title{
-    font-style: italic;
+  .quote:hover{
+    background-color: blueviolet;
   }
 </style>
