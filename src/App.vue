@@ -1,26 +1,41 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <app-user></app-user>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h1>Animations</h1>
+        <hr>
+        <button class="btn btn-primary" @click="show = !show">Show</button>
+        <br><br>
+        <transition name="fade">
+          <div class="alert alert-info" v-if="show">This is shown</div>
+        </transition>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-    import User from './components/User.vue';
-
-    export default {
-        components: {
-            appUser: User
-        }
+  export default {
+    data() {
+      return {
+        show: false
+      }
     }
+  }
 </script>
 
 <style>
-    div.component {
-        border: 1px solid black;
-        padding: 30px;
-    }
+  .fade-enter{
+    opacity: 0;
+  }
+  .fade-enter-active{
+    transition: opacity 1s;
+  }
+  .fade-leave{
+    /*opacity: 1;*/
+  }
+  .fade-leave-active{
+    transition: opacity 1s;
+    opacity: 0;
+  }
 </style>
