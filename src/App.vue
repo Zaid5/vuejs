@@ -24,6 +24,10 @@
         >
           <div class="alert alert-info" v-if="show">This is shown</div>
         </transition>
+        <transition :name="alertAnimation" mode="out-in">
+          <div class="alert alert-info" v-if="show" key="info">This info is shown</div>
+          <div class="alert alert-warning" v-else key="warning">This warning is shown</div>
+        </transition>
       </div>
     </div>
   </div>
@@ -68,7 +72,7 @@
   }
   .slide-leave-active{
     animation: slide-out 1s ease-out forwards;
-    transition: opacity 3s;
+    transition: opacity 1s;
     opacity: 0;
   }
   @keyframes slide-in {
