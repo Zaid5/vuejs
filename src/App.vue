@@ -11,9 +11,9 @@
           <label> Email</label>
           <input type="text" class="form-control" v-model="user.email">
         </div>
-        <button class="btn-primary" @click="submit">Submit</button>
+        <button class="btn btn-primary" @click="submit">Submit</button>
         <hr>
-        <button class="btn-primary" @click="fetchData">Get Data</button>
+        <button class="btn btn-primary" @click="fetchData">Get Data</button>
         <br><br>
         <ul class="list-group">
           <li class="list-group-item" v-for="u in users">
