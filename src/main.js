@@ -1,16 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-export const eventBus = new Vue({
-  methods:{
-    changeAge(age) {
-      this.$emit('ageWasEdited',age);
-    }
-  }
-});
+import {store} from './store/store';
 
 new Vue({
   el: '#app',
+  store,
   render: h => h(App)
-});
-
+})
