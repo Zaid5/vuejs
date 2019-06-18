@@ -16,7 +16,7 @@
         <div class="pull-right">
           <button class="btn btn-success"
                   @click="buyStock"
-                  :disabled="quantity <= 0 && Number.isInteger(quantity)"
+                  :disabled="quantity <= 0 && !Number.isInteger(quantity) || quantity == 0"
 
           >
             Buy
