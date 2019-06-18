@@ -1,5 +1,5 @@
 <template>
-  <div class="col-sm-6 col-md-4">
+  <div class="col-sm-6 col-md-6">
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">{{stock.name}}<small>(Price: {{stock.price}} | Quantity: {{stock.quantity}})</small></h3>
@@ -10,16 +10,17 @@
                  class="form-control"
                  placeholder="Quantity"
                  v-model="quantity"
+                 :class="{danger: insufficientQuantity}"
           >
         </div>
         <!--|| !Number.isInteger(quantity) not working with disabled property-->
         <div class="pull-right">
           <button class="btn btn-success"
                   @click="sellStock"
-                  :disabled="quantity <= 0 && !Number.isInteger(quantity) || quantity == 0"
+                  :disabled="insufficientQuantity || quantity <= 0 && !Number.isInteger(quantity) || quantity == 0"
 
           >
-            Sell
+            {{insufficientQuantity? 'Not enough stocks' : 'Sell'}}
           </button>
         </div>
       </div>
@@ -35,6 +36,11 @@
     data(){
       return{
         quantity: 0,
+      }
+    },
+    computed:{
+      insufficientQuantity(){
+        return this.quantity > this.stock.quantity;
       }
     },
     methods:{
@@ -53,4 +59,9 @@
     }
   }
 </script>
-</template>
+
+<style scoped>
+  .danger{
+    border: 1px solid red;
+  }
+</style>
